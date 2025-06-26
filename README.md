@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# 💻 eBank Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the **ReactJS frontend** for the eBank project, developed as part of the Architecture des Composants d’Entreprise mini-projet.
 
-## Available Scripts
+It connects to a Spring Boot backend and supports **JWT authentication**, **role-based authorization**, and full banking features for `CLIENT` and `AGENT_GUICHET` roles.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📦 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+src/
+├── components/          # Reusable UI components (Navbar)
+├── context/             # AuthContext for state management
+├── pages/               # Login, Dashboards, Virement, etc.
+├── services/            # axios-based API service logic
+├── App.js               # Route configuration
+├── index.js             # React root entry
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the project
+```bash
+git clone https://github.com/your-username/ebank-frontend.git
+cd ebank-frontend
+```
 
-### `npm run build`
+### 2. Install dependencies
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Setup backend connection
+Create a `.env` file at the root:
+```env
+REACT_APP_API_URL=http://localhost:8080
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ensure your **Spring Boot backend is running** locally on port 8080.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Start the app
+```bash
+npm start
+```
+This runs the app in development mode on [http://localhost:3000](http://localhost:3000).
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 👤 Default Roles
+- `AGENT_GUICHET` — can add clients and bank accounts.
+- `CLIENT` — can access dashboard and initiate virements.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ensure the backend is seeded with users.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ✅ Features Covered
+- JWT-based login with secure route protection
+- Role-specific dashboards and routing
+- Full CRUD for clients and accounts
+- Virement handling with transaction traceability
+- Password encryption and update (RG_1)
+- Responsive UI using Bootstrap 5
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧪 Running Tests
+Basic unit tests are in `src/__tests__/`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run tests with:
+```bash
+npm test
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📑 Project Constraints (From Enoncé)
+- Authentication & Authorization ✅
+- DTO usage ✅
+- JWT, Spring Security, RESTful API ✅
+- Form validation ✅
+- UI separation per role ✅
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📌 Final Notes
+Make sure to:
+- Run backend before using the frontend
+- Use a modern browser
+- Use correct JWT-compatible credentials
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> For more backend help: [https://github.com/abbouformations/bank-service-multi-connecteur](https://github.com/abbouformations/bank-service-multi-connecteur)
